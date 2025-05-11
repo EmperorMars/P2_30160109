@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('header') -%>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Cybersecurity Mars</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="<link rel=" preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Courgette&family=Montserrat&family=Parisienne&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" href="/css/Style-Contacto-Prueba.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <body>
+    <header>
+      <h1>  <img src="/img/game1.png" width="500" height="400">     <img src="/img/comp.jpg" width="500" height="400">  <img src="/img/game2.png" width="500" height="400">               </h1> 
+    </header>
+    <nav class="nav">
+      <ul>
+
+        <li><a href="#" style="color: azure;">Inicio</a></li>
+        </li><a href="/login" class="form_contact" id='botonProductos' style="color: azure;"> Admin </a> </li>
+        <li><a href='/loginUsers' id='botonProductos' style="color: azure;">Clientes</a></li>
+        
+      </ul>
+    </nav>
+    <section class="products">
+      <div class="product" id="ani">
+
+       <a href="https://ciberseguridad.com/blog/consejos-ciberseguridad/"> <img src="/img/port1.jpg"  > </a>
+        <h2>CONSEJOS DE CYBERSEGURIDAD</h2>
+        <p></p>
+       
+      </div>
+      
+      <div class="product" id="ani">
+        <a href="https://www.proofpoint.com/es/threat-reference/cybersecurity"> <img src="/img/port2.jpg" > </a>
+        <h2>INFORMACIÓN DE CYBERSEGURIDAD</h2>
+        <p></p>
+       
+      </div>
+
+      <div class="product" id="ani">
+        <a href="https://www.deustoformacion.com/blog/ciberseguridad/importancia-ciberseguridad"> <img src="/img/port3.jpg"  > </a>
+        <h2>IMPORTANCIA DE LA CYBERSEGURIDAD</h2>
+        <p></p>
+       
+      </div>
+
+    </section>
+
+    <section class="form32">
+      
+    <form action="https://formsubmit.co/marcosvas2004@gmail.com" method="POST">
+        <h2>Contacto</h2>
+        <div class="input-group">
+            <label for="name">Nombre</label>
+            <input type="text" name="name" id="name" placeholder="Nombre">
+            <label for="phone">Teléfono</label>
+            <input type="tel" name="phone" id="phone" placeholder="Teléfono">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="Email">
+            <label for="message">Mensaje</label>
+            <textarea name="message" id="message" cols="30" rows="5" placeholder="Mensaje"></textarea>
+            <div class="form-txt">
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Términos y Condiciones</a>
+            </div>
+            <input class="btn" type="submit" value="Enviar">
+        </div>
+    </form>
+
+    </section>
+
+    <%- include('footer') -%>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+
+</html>

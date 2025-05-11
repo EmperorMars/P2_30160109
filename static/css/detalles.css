@@ -1,0 +1,76 @@
+@font-face{
+    font-family:'fuenteC';
+    src:url(/fuentes/HyperSuperFast.ttf);
+
+   }
+
+
+
+   @font-face{
+  
+	font-family:'Gamer';
+	src:url('/fuentes/Ray.ttf');}
+
+
+
+
+
+   body{
+    background-image:url(wall3.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: black;
+    height: 100vh;
+    }
+img{
+    width:25%;
+    height: auto;
+    margin:20px;
+    border-radius: 10%;
+      border: 5px solid black;
+}
+img:hover {
+    background: rgba(0, 0, 0, 0.6);
+    box-shadow: rgb(25, 0, 255) 5px 14px 25px;
+  }
+#contenedor{
+    display:flex;
+    justify-content: center;
+ width: 80%;
+ margin:70px auto;
+}
+h1{
+    background-image: linear-gradient(to right,#220c91, #df4b5a);
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-family:'Gamer';
+	src:url('/fuentes/Ray.ttf');
+  border-radius: 30px;
+  font:40px 'Gamer'; 
+}
+a{
+    text-decoration:none;
+    
+    margin-left:10px;
+    background-image: linear-gradient(to right,#220c91, #df4b5a);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-family:'Gamer';
+      src:url('/fuentes/Ray.ttf');
+    border-radius: 10px;
+    font:40px 'Gamer'; 
+
+
+
+}
+ @media screen and (max-width: 720px){
+     img{
+    width:70%;
+    height: auto;
+    margin:20px;
+    border-radius: 50%;
+      border: 5px solid black;
+}
+ }
