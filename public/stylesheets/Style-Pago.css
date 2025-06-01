@@ -1,0 +1,98 @@
+body{
+    background-color: rgb(0, 0, 0);
+    margin-top: 30px;
+}
+
+.container{
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px;
+    box-shadow: rgb(255, 255, 255) 0px 0px 20px;
+}
+
+ .card-custom{
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+ }
+
+ .card-header-custom{
+    background: linear-gradient(to right, rgb(0, 10, 255), rgb(90, 0, 150));
+    color: rgb(255, 255, 255);
+    border-radius: 15px 15px 0 0;
+ }
+
+ .buton-custom{
+    background: linear-gradient(to right, rgb(0, 10, 255), rgb(90, 0, 150));
+    border: none;
+    color: rgb(255, 255, 255);
+ }
+
+ .buton-custom:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.57);
+ }
+
+ .error-message{
+    display: none;
+    background-color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+ }
+
+ .success-message{
+    display: none;
+    background-color: rgb(0, 255, 0);
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+ }
+
+ .input-error{
+    border: 2px solid rgb(255, 0, 0) !important;
+    transition: border 0.3s ease;
+ }
+
+ .input-valid{
+    border: 2px solid rgb(0, 255, 0) !important;
+ }
+
+ .form-label{
+      color: rgb(255, 255, 255);
+ }
+
+ .boton{
+      text-decoration: none;
+      color: rgb(235, 235, 235);
+      padding: 20px 40px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      margin-left: 50px;
+ }
+
+ .inicio{
+   background-color: rgb(15, 10, 126);
+ }
+
+ .inicio:hover{
+   background-color: rgb(70, 150, 255);
+ }
+
+ .-boton{
+   text-decoration: none;
+   color: rgb(235, 235, 235);
+   padding: 20px 40px;
+   border-radius: 5px;
+   transition: background-color 0.3s ease;
+   margin-left: 35px;
+ }
+
+ .comentar{
+   background-color: rgb(70, 150, 255);
+ }
+
+   .comentar:hover{
+      background-color: rgb(150, 160, 255);
+   }

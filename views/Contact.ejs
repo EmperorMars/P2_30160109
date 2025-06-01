@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Formulario de Contacto con Envío de Email</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="/stylesheets/Style-Contact.css" />
+</head>
+<body>
+  <nav>
+    <a href="/">Inicio</a>
+    <a href="/Pago">Contratar Servicio</a>
+  </nav>
+  <h1>Formulario de Contacto</h1>
+  <form action="https://formsubmit.co/marsxgamer509@gmail.com" method="POST" id="form-contacto" novalidate autocomplete="off">
+    <label for="nombre">Nombre y Apellido<span aria-hidden="true"></span></label>
+    <input type="text" id="nombre" name="nombre" placeholder="Nombre y Apellido" required minlength="2" />
+
+    <label for="email">Correo Electrónico<span aria-hidden="true"></span></label>
+    <input type="email" id="email" name="email" placeholder="Correo Electrónico" required />
+
+    <label for="asunto">Asunto <span aria-hidden="true"></span></label>
+    <input type="text" id="asunto" name="asunto" placeholder="Asunto del Mensaje" required minlength="3" />
+
+    <label for="mensaje">Mensaje <span aria-hidden="true"></span></label>
+    <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí..." rows="5" required minlength="10"></textarea>
+
+    <!-- estos inputs ocultos ayudan a formsubmit a redirigir y evitar spam -->
+    
+    <input type="hidden" name="_next" value="http://localhost:3000" />
+    <input type="hidden" name="_subject" value="Nuevo mensaje desde formulario de contacto" />
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <div id="mensaje-exito" role="alert" aria-live="polite">¡Mensaje enviado con éxito!</div>
+
+  <div id="lista-contactos" style="display:none;">
+    <h2>Contactos Enviados</h2>
+    <ul class="contactos" id="ul-contactos"></ul>
+  </div>
+
+<script>
+  (function(){
+    const formulario = document.getElementById('form-contacto');
+    const mensajeExito = document.getElementById('mensaje-exito');
+    const listaContactos = document.getElementById('lista-contactos');
+    const ulContactos = document.getElementById('ul-contactos');
+    const CLAVE_STORAGE = 'baseDatosContactos';
+
+    function obtenerContactos(){
+      const contactos = localStorage.getItem(CLAVE_STORAGE);
+      return contactos ? JSON.parse(contactos) : [];
+    }
+
+    function guardarContacto(contacto){
+      const contactos = obtenerContactos();
+      contactos.push(contacto);
+      localStorage.setItem(CLAVE_STORAGE, JSON.stringify(contactos));
+    }
+
+    function mostrarContactos(){
+      const contactos = obtenerContactos();
+      if (contactos.length === 0){
+        listaContactos.style.display = 'none';
+        return;
+      }
+      listaContactos.style.display = 'block';
+      ulContactos.innerHTML = '';
+      contactos.forEach((contacto) => {
+        const li = document.createElement('li');
+        li.innerHTML = 
+          '<strong>' + escaparHTML(contacto.nombre) + '</strong>' +
+          '<span><b>Email:</b> ' + escaparHTML(contacto.email) + '</span><br/>' +
+          '<span><b>Asunto:</b> ' + escaparHTML(contacto.asunto) + '</span><br/>' +
+          '<span><b>Mensaje:</b> ' + escaparHTML(contacto.mensaje) + '</span>';
+        ulContactos.appendChild(li);
+      });
+    }
+
+    function escaparHTML(texto) {
+      return texto.replace(/[&<>"'`=\/]/g, function(s) {
+        return {
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;',
+          '`': '&#x60;',
+          '=': '&#x3D;',
+          '/': '&#x2F;'
+        }[s];
+      });
+    }
+
+    formulario.addEventListener('submit', function(e){
+      e.preventDefault();
+      if (!formulario.checkValidity()){
+        formulario.reportValidity();
+        return;
+      }
+      const datosContacto = {
+        nombre: formulario.nombre.value.trim(),
+        email: formulario.email.value.trim(),
+        asunto: formulario.asunto.value.trim(),
+        mensaje: formulario.mensaje.value.trim()
+      };
+      guardarContacto(datosContacto);
+      formulario.reset();
+      mensajeExito.style.display = 'block';
+      setTimeout(() => {
+        mensajeExito.style.display = 'none';
+      }, 4000);
+      mostrarContactos();
+    });
+
+    mostrarContactos();
+  })();
+</script>
+
+</body>
+</html>
