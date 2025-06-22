@@ -10,3 +10,5 @@ En la parte superior de la página se encuentran los botones "Inicio" y Contrata
 - que le pedirá rellenarlo con sus datos para realizar el pago exitosamente.
 
 - (Cabe acotar que faltaron muchas cosas por añadir, pero eso fué lo mejor que pude proporcionarle a pesar de haber investigado y haberme apoyado con IA).
+
+(Psdt: Si muero, moriré con honor profesor)
