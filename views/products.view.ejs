@@ -1,0 +1,49 @@
+<section class="hero-section d-flex align-items-center" id="inicio">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <span class="cyber-badge mb-4 d-inline-block">
+                    <i class="fas fa-certificate me-2"></i>PROTECCIÓN CERTIFICADA
+                </span>
+                <h1 class="display-3 fw-bold mb-4">Defensa Cibernética para la Era Digital</h1>
+                <p class="lead mb-4">Protegemos su infraestructura digital con soluciones avanzadas de seguridad adaptadas a las amenazas actuales.</p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="#servicios" class="btn btn-cyber btn-lg">
+                        <i class="fas fa-shield-virus me-2"></i>Nuestros Servicios
+                    </a>
+                    <a href="#contacto" class="btn btn-outline-light btn-lg">
+                        <i class="fas fa-phone-alt me-2"></i>Consultar Ahora
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80" 
+                     alt="Seguridad Digital" 
+                     class="img-fluid rounded-4 shadow-lg"
+                     style="border: 3px solid rgba(0, 204, 102, 0.5);">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Nuestros Productos de Ciberseguridad</h2>
+        <div class="row g-4">
+            <% productos.forEach(producto => { %>
+                <div class="col-md-6 col-lg-3">
+                    <a href="/productos/<%= producto.id %>" style="text-decoration: none; color: inherit;">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
+                                <h5 class="card-title"><%= producto.nombre %></h5>
+                                <p class="card-text"><%= producto.descripcion %></p>
+                                <p class="text-success fw-bold">$<%= producto.precio.toFixed(2) %></p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</section>
+
