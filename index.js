@@ -13,7 +13,7 @@ app.use(layouts);
 app.set("layout", "layouts/layout");
 app.use(layouts);
 app.set("view engine", "ejs");
-app.set('views', patch.join(__dirname, 'src', 'views'));
+app.set('views', patch.join(__dirname, 'views'));
 
 app.use(express.static(patch.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
