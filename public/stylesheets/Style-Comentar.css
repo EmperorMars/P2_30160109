@@ -1,0 +1,141 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(0, 0, 0);
+}
+
+form {
+  padding: 40px 20px;
+  box-shadow: 0 0 20px rgb(255, 255, 255);
+  border-radius: 20px;
+  text-align: center;
+  width: 340px;
+  margin-top: 30px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+h2 {
+  color: rgb(255, 255, 255);
+  font-size: 35px;
+}
+
+.label {
+  color: rgb(70, 150, 255);
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.grupo {
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+input, textarea {
+  padding: 17px 25px;
+  border-radius: 25px;
+  margin-bottom: 20px;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(0, 10, 155);
+  color: rgb(0, 0, 0);
+  outline: none;
+}
+
+input::placeholder, textarea::placeholder {
+  color: rgb(0, 0, 0);
+}
+
+.form-txt {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+
+.form-txt a {
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.Botoncito {
+  font-size: 26px;
+  color: rgb(255, 255, 255);
+  border: 0;
+  border-radius: 25px;
+  background-color: rgb(22, 15, 126);
+  box-shadow: 0 0 20px rgba(5, 6, 90, 0.2);
+  cursor: pointer;
+}
+
+.Botoncito:hover {
+  background-color: rgb(70, 150, 255);
+}
+
+@media(max-width:990px) {
+  body{
+    padding: 30px;
+  }
+
+  form {
+    padding: 50px 30px;
+    width: 100%;
+  }
+
+  input {
+    padding: 15px;
+  }
+}
+
+
+.boton {
+  text-decoration: none;
+  color: rgb(235, 235, 235);
+  padding: 20px 40px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  margin-left: 930px;
+  margin-top: 20px;
+  font-size: 20px;
+  position: absolute;
+}
+
+.inicio {
+  background-color: rgb(15, 25, 65);
+}
+
+.inicio:hover {
+  background-color: rgb(150, 160, 255)
+}
+
+.-boton {
+  text-decoration: none;
+  color: rgb(235, 235, 235);
+  padding: 20px 40px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  margin-left: 1080px;
+  margin-top: 20px;
+  font-size: 20px;
+  position: absolute;
+}
+
+.pago {
+  background-color: rgb(70, 150, 255);
+}
+
+.pago:hover {
+  background-color: rgb(150, 160, 255)
+}
