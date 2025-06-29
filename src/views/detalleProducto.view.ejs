@@ -1,0 +1,88 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-lg">
+        <div class="card-header bg-dark text-white">
+          <h3 class="mb-0"><%= producto.nombre %></h3>
+        </div>
+        <div class="card-body">
+          <p class="lead"><%= producto.descripcion %></p>
+          <p class="fw-bold text-success fs-4">Precio base: $<%= producto.precio.toFixed(2) %></p>
+
+          <hr>
+          <h4 class="mb-3">Formulario de Pago</h4>
+          <form action="/procesar-pago" method="POST">
+            <input type="hidden" name="productoId" value="<%= producto.id %>">
+
+            <!-- Nombre -->
+            <div class="mb-3">
+              <label class="form-label">Nombre completo:</label>
+              <input type="text" class="form-control" name="nombre" required>
+            </div>
+
+            <!-- Correo -->
+            <div class="mb-3">
+              <label class="form-label">Correo electrónico:</label>
+              <input type="email" class="form-control" name="correo" required>
+            </div>
+
+            <!-- Nombre en la tarjeta -->
+            <div class="mb-3">
+              <label class="form-label">Nombre del titular de la tarjeta:</label>
+              <input type="text" class="form-control" name="titular" required>
+            </div>
+
+            <!-- Número de tarjeta -->
+            <div class="mb-3">
+              <label class="form-label">Número de tarjeta:</label>
+              <input type="text" class="form-control" name="tarjeta" maxlength="16" required>
+            </div>
+
+            <!-- Fecha de expiración (mes y año separados) -->
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Mes de expiración:</label>
+                <select class="form-select" name="mes" required>
+                  <% for(let m = 1; m <= 12; m++) { %>
+                    <option value="<%= m.toString().padStart(2, '0') %>"><%= m.toString().padStart(2, '0') %></option>
+                  <% } %>
+                </select>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Año de expiración:</label>
+                <select class="form-select" name="anio" required>
+                  <% const currentYear = new Date().getFullYear(); %>
+                  <% for(let y = currentYear; y <= currentYear + 10; y++) { %>
+                    <option value="<%= y %>"><%= y %></option>
+                  <% } %>
+                </select>
+              </div>
+            </div>
+
+            <!-- Código de seguridad -->
+            <div class="mb-3">
+              <label class="form-label">Código de seguridad (CVV/CVC):</label>
+              <input type="text" class="form-control" name="cvv" maxlength="4" required>
+            </div>
+
+            <!-- Moneda -->
+            <div class="mb-3">
+              <label class="form-label">Moneda de pago:</label>
+              <select class="form-select" name="moneda" required>
+                <option value="USD">Dólar estadounidense (USD)</option>
+                <option value="EUR">Euro (EUR)</option>
+                <option value="MXN">Bolivar (VES)</option>
+              </select>
+            </div>
+            <div class="mb-3">
+  <div class="g-recaptcha" data-sitekey="TU_SITE_KEY_AQUI"></div>
+</div>
+
+            <!-- Botón -->
+            <button type="submit" class="btn btn-success w-100 mt-3">Pagar ahora</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
