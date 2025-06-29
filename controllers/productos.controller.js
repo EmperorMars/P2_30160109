@@ -5,7 +5,7 @@ const productoController = {
   mostrarProductos: (req, res) => {
     Producto.getAll((err, productos) => {
       if (err) return res.status(500).send("Error al obtener productos");
-      res.render("products.view.ejs", { productos });
+      res.render("products", { productos });
     });
   },
 
@@ -51,7 +51,7 @@ const productoController = {
         }
 
         // Aquí puedes registrar la compra o simplemente mostrar confirmación
-        res.render("confirmacion.view.ejs", {
+        res.render("confirmacion", {
           nombre,
           correo,
           producto,
