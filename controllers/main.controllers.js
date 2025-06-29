@@ -2,7 +2,7 @@ const ComentarioModel = require("./model/formulariomodel.js");
 
 const index = async (req, res) => {
     
-      res.render("main.view.ejs");
+      res.render("main.view");
     
   };
 

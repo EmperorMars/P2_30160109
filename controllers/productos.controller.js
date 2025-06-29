@@ -51,7 +51,7 @@ const productoController = {
         }
 
         // Aquí puedes registrar la compra o simplemente mostrar confirmación
-        res.render("confirmacion.view.ejs", {
+        res.render("confirmacion.view", {
           nombre,
           correo,
           producto,
