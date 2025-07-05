@@ -1,0 +1,40 @@
+ <div class="container py-5">
+    <h1 class="mb-4">Comentarios recibidos</h1>
+
+    <% if (comentarios.length === 0) { %>
+      <div class="alert alert-info">No hay comentarios para mostrar.</div>
+    <% } else { %>
+      <table class="table table-striped table-bordered align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Comentario</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>IP</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% comentarios.forEach(c => { %>
+            <tr>
+              <td><%= c.id %></td>
+              <td><%= c.nombre %></td>
+              <td><a href="mailto:<%= c.correo %>"><%= c.correo %></a></td>
+              <td><%= c.comentario %></td>
+              <td><%= c.fecha %></td>
+              <td><%= c.hora %></td>
+              <td><%= c.ip %></td>
+              <td>
+                <form action="/admin/<%= c.id %>/eliminar" method="POST" onsubmit="return confirm('¿Eliminar este comentario?');">
+                  <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } %>
+  </div>

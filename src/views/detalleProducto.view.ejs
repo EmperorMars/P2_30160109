@@ -1,0 +1,106 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-lg">
+        <div class="card-header bg-dark text-white">
+          <h3 class="mb-0"><%= producto.nombre %></h3>
+        </div>
+        <div class="card-body">
+          <p class="lead"><%= producto.descripcion %></p>
+          <p class="fw-bold text-success fs-4">Precio base: $<%= producto.precio.toFixed(2) %></p>
+
+          <hr>
+          <h4 class="mb-3">Formulario de Pago</h4>
+
+          <% if (errorMsg) { %>
+            <div class="alert alert-danger position-relative" role="alert" style="max-width: 400px;">
+              <%= errorMsg %>
+              <span style="position: absolute; top: 100%; left: 10px; width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid #dc3545;"></span>
+            </div>
+          <% } %>
+
+          <form action="/productos/<%= producto.id %>/pagar" method="POST" novalidate>
+            <input type="hidden" name="productoId" value="<%= producto.id %>">
+
+            <!-- Nombre completo -->
+            <div class="mb-3">
+              <label class="form-label">Nombre completo:</label>
+              <input type="text" class="form-control" name="nombre" value="<%= nombre || '' %>" required>
+            </div>
+
+            <!-- Correo electrónico -->
+            <div class="mb-3">
+              <label class="form-label">Correo electrónico:</label>
+              <input type="email" class="form-control" name="correo" value="<%= correo || '' %>" required>
+            </div>
+
+            <!-- Nombre del titular de la tarjeta -->
+            <div class="mb-3">
+              <label class="form-label">Nombre del titular de la tarjeta:</label>
+              <input type="text" class="form-control" name="titular" value="<%= titular || '' %>" required>
+            </div>
+
+            <!-- Número de tarjeta -->
+            <div class="mb-3">
+              <label class="form-label">Número de tarjeta:</label>
+              <input type="text" class="form-control" name="tarjeta" maxlength="16" value="<%= tarjeta || '' %>" required>
+              <small class="form-text text-muted mt-1">
+                Tarjetas válidas: Visa (4111111111111111), Mastercard (5555555555554444), American Express (378282246310005), Discover (6011111111111117), JCB (3530111333300000), Diners Club (30569309025904)
+              </small>
+            </div>
+
+            <!-- Fecha de expiración -->
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Mes de expiración:</label>
+                <select class="form-select" name="mes" required>
+                  <% for (let m = 1; m <= 12; m++) { 
+                       const mesVal = m.toString().padStart(2, '0'); %>
+                    <option value="<%= mesVal %>" <%= mesVal === (mes || '') ? 'selected' : '' %>><%= mesVal %></option>
+                  <% } %>
+                </select>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Año de expiración:</label>
+                <select class="form-select" name="anio" required>
+                  <% const currentYear = new Date().getFullYear(); %>
+                  <% for (let y = currentYear; y <= currentYear + 10; y++) { %>
+                    <option value="<%= y %>" <%= y.toString() === (anio || '') ? 'selected' : '' %>><%= y %></option>
+                  <% } %>
+                </select>
+              </div>
+            </div>
+
+            <!-- Código de seguridad (CVV/CVC) -->
+            <div class="mb-3">
+              <label class="form-label">Código de seguridad (CVV/CVC):</label>
+              <input type="text" class="form-control" name="cvv" maxlength="4" value="<%= cvv || '' %>" required>
+            </div>
+
+            <!-- Moneda -->
+            <div class="mb-3">
+              <label class="form-label">Moneda de pago:</label>
+              <select class="form-select" name="moneda" required>
+                <option value="USD" <%= moneda === 'USD' ? 'selected' : '' %>>Dólar estadounidense (USD)</option>
+                <option value="EUR" <%= moneda === 'EUR' ? 'selected' : '' %>>Euro (EUR)</option>
+                <option value="VES" <%= moneda === 'VES' ? 'selected' : '' %>>Bolívar (VES)</option>
+              </select>
+            </div>
+
+            <!-- reCAPTCHA -->
+            <div class="mb-3">
+              <div class="g-recaptcha" data-sitekey="6Ldu8HYrAAAAAOcM5NhOVXuq4g1hmHThCRiWoZmR"></div>
+            </div>
+
+            <!-- Botón enviar -->
+            <button type="submit" class="btn btn-success w-100 mt-3">Pagar ahora</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Si usas bootstrap 5, asegúrate de incluir su CSS y JS, y la librería reCAPTCHA en el layout principal -->
+

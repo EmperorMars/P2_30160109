@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <title>Document</title>
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --dark-color: #212529;
+            --cyber-blue: #0066cc;
+            --cyber-green: #00cc66;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, rgba(13, 110, 253, 0.9), rgba(102, 16, 242, 0.8)), 
+                        url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 80vh;
+            color: white;
+            position: relative;
+            padding-top: 100px;
+        }
+        .navbar {
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            background-color: rgba(13, 13, 13, 0.9) !important;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--cyber-green) !important;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            margin: 0 0.2rem;
+            border-radius: 4px;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .btn-cyber {
+            background-color: var(--cyber-green);
+            color: white;
+            font-weight: 600;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            transition: all 0.3s;
+        }
+        
+        .btn-cyber:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 204, 102, 0.3);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--cyber-blue);
+            margin-bottom: 1rem;
+        }
+        .hexagon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--cyber-blue);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            margin: 0 auto;
+            font-size: 1.5rem;
+        }
+        .cyber-badge {
+            background-color: rgba(0, 204, 102, 0.1);
+            color: var(--cyber-green);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .footer-cyber {
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            color: white;
+        }
+        
+        .footer-heading {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .footer-heading:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--cyber-green);
+        }
+        
+        .footer-link {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .footer-link:hover {
+            color: var(--cyber-green);
+            padding-left: 5px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transition: all 0.3s;
+            color: white;
+        }
+        .social-icon:hover {
+            background: var(--cyber-green);
+            transform: translateY(-3px);
+        }
+        
+        .newsletter-input {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+        }
+        
+        .newsletter-input:focus {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body>
+
+    <%- include("../parcials/header.ejs") %>
+
+    <main>
+        <%- body%>
+    </main>
+    <%- include("../parcials/footer.ejs") %>
+</body>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KBYVKR9XX3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KBYVKR9XX3');
+</script>
+</html>

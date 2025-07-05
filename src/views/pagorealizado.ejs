@@ -1,0 +1,45 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+
+      <h1 class="mb-4">
+        <% if (pago && pago.status === "APPROVED") { %>
+          ✅ Pago realizado con éxito
+        <% } else if (pago && pago.status === "REJECTED") { %>
+          ❌ Pago rechazado
+        <% } else if (pago && pago.status === "ERROR") { %>
+          ⚠️ Error en el pago
+        <% } else if (pago && pago.status === "INSUFFICIENT") { %>
+          ⚠️ Fondos insuficientes
+        <% } else { %>
+          ℹ️ Estado desconocido del pago
+        <% } %>
+      </h1>
+
+      <div class="card p-4 shadow">
+        <h3>Detalle de la compra</h3>
+        <p><strong>Producto:</strong> <%= producto.nombre %></p>
+        <p><strong>Descripción:</strong> <%= producto.descripcion %></p>
+        <p><strong>Precio:</strong> <%= producto.precio.toFixed(2) %> <%= moneda %></p>
+
+        <hr>
+
+        <h4>Datos del comprador</h4>
+        <p><strong>Nombre:</strong> <%= nombre %></p>
+        <p><strong>Correo:</strong> <%= correo %></p>
+
+        <hr>
+
+        <h4>Información geográfica</h4>
+        <% if (geoInfo && geoInfo.status === "success") { %>
+          <p><strong>País:</strong> <%= geoInfo.country %></p>
+          <p><strong>Región:</strong> <%= geoInfo.regionName %></p>
+          <p><strong>Ciudad:</strong> <%= geoInfo.city %></p>
+          <p><strong>IP:</strong> <%= geoInfo.query %></p>
+        <% } else { %>
+          <p>No se pudo obtener la geolocalización.</p>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</div>
